@@ -1,0 +1,42 @@
+{% load sekizai_tags i18n wiki_tags static %}
+    <!-- Le styles -->
+    <link href="{% static "wiki/bootstrap/css/wiki-bootstrap.min.css" %}" rel="stylesheet">
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Cover</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Marble-wiki</h1>
+              <form method="GET" action="{% url 'wiki:search' %}">
+                <div class="marble_search">
+                  <input class="marble_input" type="search" class="search-query" name="q" placeholder="{% trans "Search..." %}" />
+                  <button  class="marble_button" type="submit">Search</button>
+                </div>
+              </form>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
