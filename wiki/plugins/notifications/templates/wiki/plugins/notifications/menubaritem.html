@@ -15,6 +15,13 @@
       {% trans "Notification settings" %}
     </a>
   </li>
+  <li>
+    <a href="{% url 'wiki:checklist_settings' %}">
+      <i class ="fa fa-trash-o"></i>
+      {% trans "待审阅..." %}
+    </a>
+
+  </li>
 {% addtoblock "js" %}
 <script type="text/javascript">
   URL_NOTIFY_GET_NEW = "{% url "nyt:json_get" %}";

@@ -12,6 +12,7 @@ class NotifyPlugin(BasePlugin):
     slug = settings.SLUG
     urlpatterns = {'root': [
         url(r'^$', views.NotificationSettings.as_view(), name='notification_settings'),
+        url(r'^check_list/&', views.CheckListSettings.as_view(),name='checklist_settings'),
     ]}
 
     article_view = views.NotificationSettings().dispatch

@@ -6,9 +6,21 @@ from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext as _
 from django.views.generic.edit import FormView
+from wiki.models.urlpath import URLPath
 
 from . import forms, models
 
+
+class CheckListSettings(FormView):
+    template_name = "wiki/plugins/notifications/checklist.html"
+    form_class = forms.SettingsFormSet
+
+    def get_context_data(self, **kwargs):
+        check_url = URLPath.objects.filter(
+            released = False
+        )
+        kwargs['check_url'] = check_url
+        return kwargs
 
 class NotificationSettings(FormView):
 
