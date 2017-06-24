@@ -22,6 +22,7 @@ from wiki.core.compat import atomic, transaction_commit_on_success
 from wiki.core.exceptions import MultipleRootURLs, NoRootURL
 from wiki.decorators import disable_signal_for_loaddata
 from wiki.models.article import Article, ArticleForObject, ArticleRevision
+from django.db import models
 
 try:
     notrans = transaction.non_atomic_requests
@@ -40,7 +41,7 @@ log = logging.getLogger(__name__)
 
 
 @python_2_unicode_compatible
-class URLPath(MPTTModel):
+class URLPath(MPTTModel, models.Model):
 
     """
     Strategy: Very few fields go here, as most has to be managed through an
@@ -86,6 +87,16 @@ class URLPath(MPTTModel):
         blank=True,
         related_name='children',
         help_text=_("Position of URL path in the tree.")
+    )
+
+    released = models.BooleanField(
+        default=False,
+        verbose_name=_("aritcle is released")
+    )
+
+    is_dir = models.BooleanField(
+        default=True,
+        verbose_name=_("File is a directory")
     )
 
     def __init__(self, *args, **kwargs):

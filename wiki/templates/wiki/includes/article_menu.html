@@ -64,11 +64,4 @@
   </a>
 </li>
 
-<li class="pull-right{% if selected == "view" %} active{% endif %}">
-  <a href="{% url 'wiki:get' article_id=article.id path=urlpath.path %}">
-    <span class="fa fa-home"></span>
-    <span class="hidden-xs">{% trans "View" %}</span>
-  </a>
-</li>
-
 {% endwith %}
