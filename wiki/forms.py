@@ -160,6 +160,7 @@ class EditForm(forms.Form, SpamProtectionMixin):
         label=_('Contents'),
         required=False,
         widget=getEditor().get_widget())  # @UndefinedVariable
+        # widget=forms.Textarea)
 
     summary = forms.CharField(
         label=_('Summary'),
@@ -341,16 +342,22 @@ class CreateForm(forms.Form, SpamProtectionMixin):
         self.urlpath_parent = urlpath_parent
 
     title = forms.CharField(label=_('Title'),)
+
+    is_dir = forms.BooleanField(
+        required=False, label=_('Is_dir'),
+        help_text=_(
+            '创建目录请勾选'))
+
     ## hidden by wx
     # slug = WikiSlugField(
     #     label=_('Slug'),
     #     help_text=_(
     #         "This will be the address where your article can be found. Use only alphanumeric characters and - or _. Note that you cannot change the slug after creating the article."),
     #     max_length=models.URLPath.SLUG_MAX_LENGTH)
-    content = forms.CharField(
-        label=_('Contents'),
-        required=False,
-        widget=getEditor().get_widget())  # @UndefinedVariable
+    # content = forms.CharField(
+    #     label=_('Contents'),
+    #     required=False,
+    #     widget=getEditor().get_widget())  # @UndefinedVariable
 
     summary = forms.CharField(
         label=_('Summary'),
@@ -411,12 +418,15 @@ class DeleteForm(forms.Form):
         super(DeleteForm, self).__init__(*args, **kwargs)
 
     confirm = forms.BooleanField(required=False,
-                                 label=_('Yes, I am sure'))
+                                 label=_('Sure')
+                                 )
+
     purge = forms.BooleanField(
         widget=HiddenInput(),
         required=False, label=_('Purge'),
         help_text=_(
             'Purge the article: Completely remove it (and all its contents) with no undo. Purging is a good idea if you want to free the slug such that users can create new articles in its place.'))
+
     revision = forms.ModelChoiceField(models.ArticleRevision.objects.all(),
                                       widget=HiddenInput(), required=False)
 

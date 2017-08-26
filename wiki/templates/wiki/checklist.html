@@ -1,0 +1,33 @@
+{% extends "wiki/article.html" %}
+{% load wiki_tags i18n sekizai_tags %}
+
+
+
+{% block wiki_contents %}
+
+<div style="margin-top:40px">
+    <h1>{% trans "待审核..." %}{{ article.current_revision.title }}
+        <p class =" btn btn-lg btn-primary" style="float:right">Total :{{ count }}</p>
+    </h1>
+    <hr style="height:5px;border:none;border-top:5px solid #555555;" />
+</div>
+
+{% for i in check_url %}
+  <div class = "list-group">
+    <a href="{% url 'wiki:history' path=i.path %}" class = "list-group-item">
+          <h4 class = "list-group-item-heading">{{ i.article.current_revision.title }}</h4>
+          <p class = "list-group-item-text" style="margin-top:20px">{{ i.article.owner }}{% trans "'s article, last modified:" %}{{ i.article.current_revision.modified }}</p>
+    </a>
+  </div>
+{% endfor %}
+
+<!-- /.col-sm-4 -->
+<!--{% for i in path %}-->
+  <!--<li>-->
+    <!--<a href="{{ i.current_revision.pk }}">-->
+          <!--{{ i }}-->
+    <!--</a>-->
+  <!--</li>-->
+  <!--<li> </li>-->
+<!--{% endfor %}-->
+{% endblock %}

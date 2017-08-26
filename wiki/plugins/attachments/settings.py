@@ -50,7 +50,7 @@ UPLOAD_PATH_OBSCURIFY = getattr(
 # to allow. For your own safety.
 FILE_EXTENSIONS = getattr(
     django_settings, 'WIKI_ATTACHMENTS_EXTENSIONS',
-    ['pdf', 'doc', 'odt', 'docx', 'txt'])
+    ['pdf', 'doc', 'odt', 'docx', 'txt' ,'xlsx'])
 
 # Storage backend to use, default is to use the same as the rest of the
 # wiki, which is set in WIKI_STORAGE_BACKEND, but you can override it

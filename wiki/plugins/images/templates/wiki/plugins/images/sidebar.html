@@ -73,12 +73,12 @@ function add_image(form) {
 
 <p>
   <a href="{% url 'wiki:images_index' path=urlpath.path article_id=article.id %}">
-    {% trans "Manage images" %} &raquo;
+    {% trans "管理图片" %} &raquo;
   </a>
 </p>
 <hr />
 
-<h4>{% trans "Add new image" %}</h4>
+<h4>{% trans "添加新图片" %}</h4>
 
 {% if article|images_can_add:user %}
   {% if form.non_field_errors %}
@@ -121,7 +121,7 @@ function add_image(form) {
   <p>
     <button type="button" onClick="add_image(this.form)" name="{{ plugin.slug }}_save" value="1" class="btn btn-default btn-md">
       <span class="fa fa-upload"></span>
-      {% trans "Add image" %}
+      {% trans "添加图片" %}
     </button>
   </p>
 {% else %}
@@ -136,14 +136,13 @@ function add_image(form) {
 <hr />
 
 <h4>
-  {% trans "How to use images" %}
+  {% trans "如何使用图片" %}
 </h4>
 
-<p>{% trans "After uploading an image, it is attached to this particular article and can be used only here. Other users may replace the image, but older versions are kept. To show the image press the Insert button and select the options you want to use. You can use Markdown in the caption. The Markdown code syntax for images looks like this" %}<br/>
-<pre>[image:id align:right size:orig]
-    caption indented by 4 spaces</pre>
-{% trans "Possible values for align are" %} <pre>left | right</pre>
-{% trans "Possible values for size are" %} <pre>small | medium | large | orig | default</pre>
+<p>{% trans "图片上传之后, 仅在当前文章可用 ，点击Insert插入图片或通过如下MarkDown语法实现:" %}<br/>
+<pre>[image:id align:right size:orig]</pre>
+{% trans "align 的可选值：" %} <pre>left | right</pre>
+{% trans "size 的可选值" %} <pre>small | medium | large | orig | default</pre>
 </p>
 {% endwith %}
 

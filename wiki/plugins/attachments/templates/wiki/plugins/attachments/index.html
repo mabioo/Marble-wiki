@@ -7,7 +7,7 @@
 {% block wiki_contents_tab %}
 <div class="row">
   <div class="col-lg-8">
-    <p class="lead">{% trans "The following files are available for this article. Copy the markdown tag to directly refer to a file from the article text." %}</p>
+    <p class="lead">{% trans "通过Markdown tag语法来在文章中使用附件." %}</p>
 
 
     {% for attachment in attachments %}
@@ -98,7 +98,7 @@
 
         <div id="collapse_add" class="panel-collapse collapse">
           <div class="panel-body">
-            <p>{% trans "You can reuse files from other articles. These files are subject to updates on other articles which may or may not be a good thing." %}</p>
+            <p>{% trans "可以使用其他文章中的附件，但需要先进行搜索添加." %}</p>
             <form method="GET" action="{% url 'wiki:attachments_search' path=urlpath.path article_id=article.id %}" class="wiki-form-block">
               <div class="input-group">
                 {{ search_form.query }}

@@ -10,7 +10,7 @@ class DeletedListView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         # Let logged in super users continue
         if not request.user.is_superuser:
-            return redirect('wiki:root')
+            return redirect('wiki:dir')
 
         return super(DeletedListView, self).dispatch(request, *args, **kwargs)
 

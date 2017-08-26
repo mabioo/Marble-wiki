@@ -1,30 +1,30 @@
 {% load i18n sekizai_tags static %}
 
-<h4>{% trans "Link to another wiki page" %}</h4>
+<h4>{% trans "链接到其他Wiki文章" %}</h4>
 
 <p>
-  {% trans "Type in something from another wiki page's title and auto-complete will help you create a tag for your wiki link. Tags for links look like this:" %}<br />
+  {% trans "提供了一个超链接到其他的wiki文章，通过如下Tag实现:" %}<br />
 </p>
 
 <pre>[Title of link](wiki:ArticleSlug)</pre>
 
 <div class="input-group">
-  <input type="text" class="page_title_query form-control" id="links_page_title_query" value="" placeholder="Type to search..." />
+  <input type="text" class="page_title_query form-control" id="links_page_title_query" value="" placeholder="搜索..." />
   <span class="input-group-btn">
     <button type="button" class="btn btn-default" onclick="wikiInsertLink()">
-      {% trans "Insert" %}
+      {% trans "插入" %}
     </button>
   </span>
 </div>
 
 <hr />
 
-<h4>{% trans "An external link" %}</h4>
+<h4>{% trans "其他网站的超链接" %}</h4>
 
 <p>
-  {% trans "You can link to another website simply by inserting an address example.com or http://example.com or by using the markdown syntax:" %}<br />
+  {% trans "可以使用同样的方式来对其他的网站进行超链接，通过如下语法来链接到百度:" %}<br />
 </p>
-<pre>[Clickable text](http://example.com)</pre>
+<pre>[百度](http://baidu.com)</pre>
 
 {% addtoblock "js" %}<script type="text/javascript" src="{% static "wiki/js/typeahead.min.js" %}"></script>{% endaddtoblock %}
 {% addtoblock "js" %}

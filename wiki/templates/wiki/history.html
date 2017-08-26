@@ -45,10 +45,21 @@
 </style>
 {% endaddtoblock %}
 
-<p class="lead">
-  {% trans "Click each revision to see a list of edited lines. Click the Preview button to see how the article looked at this stage. At the bottom of this page, you can change to a particular revision or merge an old revision with the current one." %}
-</p>
+<!--<p class="lead">-->
+  <!--{% trans "点击每个版本查看修改的内容，点击Preview可以进行版本的预览. 点击“发布”可以将文章发布，点击“退版到...”可以退版到选中的版本." %}-->
+<!--</p>-->
+<script>
+function released(){
+    alert(article.current_revision.title);
+}
 
+{% if False %}
+  {{ article.test }}
+{% endif %}
+
+</script>
+
+{{ article.released }}
 <form method="GET">
   <div class="tab-content" style="overflow: visible;">
     {% for revision in revisions %}
@@ -121,21 +132,47 @@
     {% include "wiki/includes/pagination.html" %}
 
     {% if revisions.count > 1 and article|can_write:user and not article.current_revision.locked %}
-
-    <div class="form-group form-actions">
-      <div class="pull-right">
-        <button type="submit" name="preview" value="1" class="btn btn-default" onclick="$('#mergeModal').modal('show'); this.form.target='mergeWindow'; this.form.action=$('input[type=radio]:checked').attr('merge-button-href'); $('.merge-revision-commit').attr('href', $('input[type=radio]:checked').attr('merge-button-commit-href'))">
-          <span class="fa fa-random"></span>
-          {% trans "Merge selected with current..." %}
-        </button>
-        <button type="submit" name="save" value="1" class="btn btn-primary" onclick="this.form.target='_self'; this.form.action=$('input[type=radio]:checked').attr('switch-button-href')">
-          <span class="fa fa-flag"></span>
-          {% trans "Switch to selected version" %}
-        </button>
-      </div>
-      <div style="clear:both"></div>
-    </div>
-
+        <div class = "pull-right">
+            <button type="submit" name="save" value="1" class="btn btn-primary" onclick="this.form.target='_self'; this.form.action=$('input[type=radio]:checked').attr('switch-button-href')">
+                  <span class="fa fa-flag"></span>
+                  {% trans "Switch to selected version" %}
+            </button>
+            <a class="btn btn-primary" href="{% url 'wiki:checklist_valid' article_id=article.id %}">
+                <span class = "fa fa-random"></span>
+                {% trans "Release" %}
+            </a>
+        </div>
+    <!--modified by wx-->
+    <!--<div class="form-group form-actions">-->
+      <!--&lt;!&ndash;<div class="pull-right">&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;modify this for released the article&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;<button type="submit" name="preview" value="1" class="btn btn-default" onclick="$('#mergeModal').modal('show'); this.form.target='mergeWindow'; this.form.action=$('input[type=radio]:checked').attr('merge-button-href'); $('.merge-revision-commit').attr('href', $('input[type=radio]:checked').attr('merge-button-commit-href'))">&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;<span class="fa fa-random"></span>&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;&lt;!&ndash;{% trans "Merge selected with current..." %}&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;</button>&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="{% url 'wiki:checklist_settings' %}">&ndash;&gt;-->
+        <!--&lt;!&ndash;<button class="btn btn-default">&ndash;&gt;-->
+          <!--&lt;!&ndash;<span class="fa fa-random"></span>&ndash;&gt;-->
+          <!--&lt;!&ndash;{% trans "发布" %}&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<button type="submit" name="save" value="1" class="btn btn-primary" onclick="this.form.target='_self'; this.form.action=$('input[type=radio]:checked').attr('switch-button-href')">&ndash;&gt;-->
+          <!--&lt;!&ndash;<span class="fa fa-flag"></span>&ndash;&gt;-->
+          <!--&lt;!&ndash;{% trans "Switch to selected version" %}&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--<div class = "pull-right">-->
+    <!--<button type="submit" name="save" value="1" class="btn btn-primary" onclick="this.form.target='_self'; this.form.action=$('input[type=radio]:checked').attr('switch-button-href')">-->
+          <!--<span class="fa fa-flag"></span>-->
+          <!--{% trans "Switch to selected version" %}-->
+    <!--</button>-->
+    <!--<a class="btn btn-primary" href="{% url 'wiki:checklist_valid' article_id=article.id %}">-->
+        <!--<span class = "fa fa-random"></span>-->
+        <!--{% trans "Release" %}-->
+    <!--</a>-->
+<!--</div>-->
+      <!--<div style="clear:both"></div>-->
+    <!--</div>-->
     {% endif %}
 
   </div>
@@ -200,3 +237,4 @@
 </form>
 
 {% endblock %}
+

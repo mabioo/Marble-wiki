@@ -1,0 +1,23 @@
+
+<tr>
+  <td>
+    {% if dict.article.is_dir %}
+    <a href="{% url 'wiki:dir' path=dict.path %}"> {{ dict.article.current_revision.title }}  › </a>
+    {% else %}
+    <a href="{% url 'wiki:get' path=dict.path %}" class="list-children"> {{ dict.article.current_revision.title }}  </a>
+    {% endif %}
+    {% if dict.article.current_revision.deleted %}
+      <span class="fa fa-trash"></span>
+    {% endif %}
+    {% if dict.article.current_revision.locked %}
+      <span class="fa fa-lock"></span>
+    {% endif %}
+  </td>
+  <td>
+    {{ dict.article.owner }}
+  </td>
+  <td>
+   {# {{ dict.article.current_revision.created|naturaltime }}  #}
+      {{ dict.article.current_revision.user_message }}
+  </td>
+</tr>

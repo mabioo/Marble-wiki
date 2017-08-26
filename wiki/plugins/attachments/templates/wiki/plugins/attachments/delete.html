@@ -7,7 +7,7 @@
 {% block wiki_contents_tab %}
 
 {% if attachment.article == article %}
-<h2>{% trans "Delete" %} "{{ attachment.current_revision.get_filename }}"?</h2>
+<h2>{% trans "delete" %} "{{ attachment.current_revision.get_filename }}"?</h2>
   <p class="lead">
     {% blocktrans with attachment.original_filename as filename %}
     The file may be referenced on other articles. Deleting it means that they will loose their references to this file. The following articles reference this file:

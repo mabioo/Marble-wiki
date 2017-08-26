@@ -89,16 +89,6 @@ class URLPath(MPTTModel, models.Model):
         help_text=_("Position of URL path in the tree.")
     )
 
-    released = models.BooleanField(
-        default=False,
-        verbose_name=_("aritcle is released")
-    )
-
-    is_dir = models.BooleanField(
-        default=True,
-        verbose_name=_("File is a directory")
-    )
-
     def __init__(self, *args, **kwargs):
         pass
         # Fixed in django-mptt 0.5.3
@@ -294,6 +284,7 @@ class URLPath(MPTTModel, models.Model):
             cls,
             parent,
             slug,
+            is_dir,
             site=None,
             title="Root",
             article_kwargs={},
@@ -305,6 +296,7 @@ class URLPath(MPTTModel, models.Model):
         article = Article(**article_kwargs)
         article.add_revision(ArticleRevision(title=title, **kwargs),
                              save=True)
+        article.is_dir=is_dir
         article.save()
         newpath = cls.objects.create(
             site=site,

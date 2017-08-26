@@ -36,6 +36,8 @@ class WikiURLPatterns(object):
 
     search_view_class = settings.SEARCH_VIEW
     article_diff_view = staticmethod(article.diff)
+    article_checklistView = article.CheckListSettings
+    article_checklistValid = article.CheckListValid
 
     # account views
     signup_view_class = accounts.Signup
@@ -61,8 +63,9 @@ class WikiURLPatterns(object):
 
     def get_root_urls(self):
         urlpatterns = [
-            url(r'^$',
-                self.article_view_class.as_view(),
+            url(r'^_$',
+                # self.article_view_class.as_view(),   modified by wx
+                self.article_dir_view_class.as_view(),
                 name='root',
                 kwargs={'path': ''}),
             url(r'^create-root/$',
@@ -77,6 +80,12 @@ class WikiURLPatterns(object):
             url(r'^_revision/diff/(?P<revision_id>\d+)/$',
                 self.article_diff_view,
                 name='diff'),
+            url(r'^check_list/$',
+                self.article_checklistView.as_view(),
+                name='checklist_settings',),
+            url(r'^check_valid/(?P<article_id>\d+)/$',
+                self.article_checklistValid.as_view(),
+                name='checklist_valid',)
         ]
         return urlpatterns
 

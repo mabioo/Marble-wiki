@@ -12,7 +12,7 @@
 {% with selected_tab as selected %}
 
 <ul class="pull-right marble_hits">
-  <li class="active">{%trans "点击数："%}{% get_hit_count for article %}</li>
+  <li class="active">{%trans "hits："%}{% get_hit_count for article %}</li>
 </ul>
 
 
@@ -34,14 +34,17 @@
   </li>
 {% endfor %}
 
+{% if user.is_superuser %}
 <li class="pull-right{% if selected == "history" %} active{% endif %}">
   <a href="{% url 'wiki:history' article_id=article.id path=urlpath.path %}">
     <span class="fa fa-clock-o"></span>
-    <span class="hidden-xs">{% trans "Changes" %}</span>
+    <span class="hidden-xs">{% trans "Examination" %}</span>
   </a>
 </li>
+{% endif %}
 
-{% if article|can_write:user and not article.current_revision.locked %}
+{% if article|can_write:user and not article.current_revision.locked  %}
+{#{% audit: if article|can_write:user and not article.current_revision.locked and article.released %} #}
 <li class="pull-right{% if selected == "edit" %} active{% endif %}">
   <a href="{% url 'wiki:edit' article_id=article.id path=urlpath.path %}">
     <span class="fa fa-edit"></span>
@@ -49,19 +52,19 @@
   </a>
 </li>
 {% else %}
-<li class="pull-right{% if selected == "source" %} active{% endif %}">
+<li class="pull-right active ">
   <a href="{% url 'wiki:source' article_id=article.id path=urlpath.path %}">
     <span class="fa fa-lock"></span>
-    <span class="hidden-xs">{% trans "View Source" %}</span>
+    <span class="hidden-xs">{% trans "View..." %}</span>
   </a>
 </li>
 {% endif %}
 
-<li class="pull-right{% if selected == "view" %} active{% endif %}">
-  <a href="{% url 'wiki:get' article_id=article.id path=urlpath.path %}">
-    <span class="fa fa-home"></span>
-    <span class="hidden-xs">{% trans "View" %}</span>
-  </a>
-</li>
+<!--<li class="pull-right{% if selected == "view" %} active{% endif %}">-->
+  <!--<a href="{% url 'wiki:get' article_id=article.id path=urlpath.path %}">-->
+    <!--<span class="fa fa-home"></span>-->
+    <!--<span class="hidden-xs">{% trans "View" %}</span>-->
+  <!--</a>-->
+<!--</li>-->
 
 {% endwith %}

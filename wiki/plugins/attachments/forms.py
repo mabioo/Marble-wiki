@@ -76,14 +76,14 @@ class AttachmentReplaceForm(AttachmentForm):
 class AttachmentArchiveForm(AttachmentForm):
 
     file = forms.FileField(  # @ReservedAssignment
-        label=_('File or zip archive'),
+        label=_('File（pdf, doc, odt, docx, txt ,xlsx）'),
         required=True
     )
 
     unzip_archive = forms.BooleanField(
         label=_('Unzip file'),
         help_text=_(
-            'Create individual attachments for files in a .zip file - directories do not work.'),
+            'development, Please do not select....'),
         required=False)
 
     def __init__(self, *args, **kwargs):

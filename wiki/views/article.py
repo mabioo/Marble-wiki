@@ -27,6 +27,11 @@ from wiki.decorators import get_article
 from wiki.views.mixins import ArticleMixin
 from hitcount.views import HitCountDetailView
 from uuslug import slugify
+from wiki.models.urlpath import URLPath
+# from django.core.mail import send_mail
+#
+# send_mail('Subject here', 'Here is the message.', '745376473@qq.com',
+#     ['wangxiao01@skyworth.com'], fail_silently=True)
 
 log = logging.getLogger(__name__)
 
@@ -59,7 +64,6 @@ class Create(FormView, ArticleMixin):
 
     @method_decorator(get_article(can_write=True, can_create=True))
     def dispatch(self, request, article, *args, **kwargs):
-
         return super(Create, self).dispatch(request, article, *args, **kwargs)
 
     def get_form(self, form_class=None):
@@ -102,7 +106,8 @@ class Create(FormView, ArticleMixin):
                 #form.cleaned_data['slug'],
                 slug = slugs,
                 title=form.cleaned_data['title'],
-                content=form.cleaned_data['content'],
+                is_dir=form.cleaned_data['is_dir'],
+                # content=form.cleaned_data['content'],
                 user_message=form.cleaned_data['summary'],
                 user=user,
                 ip_address=ip_address,
@@ -129,13 +134,18 @@ class Create(FormView, ArticleMixin):
                 messages.error(
                     self.request,
                     _("There was an error creating this article."))
-            return redirect('wiki:get', '')
-
-        url = self.get_success_url()
+            # return redirect('wiki:get', '')
+            redirect('wiki:create',self)
+        # is_dir = form.cleaned_data['is_dir']
+        print "<<<<<<<<<<<<<<<<",form.cleaned_data['is_dir']
+        url = self.get_success_url(form.cleaned_data['is_dir'])
         return url
 
-    def get_success_url(self):
-        return redirect('wiki:get', self.newpath.path)
+    def get_success_url(self,is_dir):
+        if is_dir is True:
+            return redirect('wiki:dir', self.newpath.path)
+        else:
+            return redirect('wiki:edit', self.newpath.path)
 
     def get_context_data(self, **kwargs):
         c = ArticleMixin.get_context_data(self, **kwargs)
@@ -274,6 +284,7 @@ class Edit(ArticleMixin, FormView):
     def dispatch(self, request, article, *args, **kwargs):
         self.sidebar_plugins = plugin_registry.get_sidebar()
         self.sidebar = []
+        print "<<<<<<<<<<<<<<<<<<<Im there!!!!"
         return super(Edit, self).dispatch(request, article, *args, **kwargs)
 
     def get_initial(self):
@@ -396,6 +407,7 @@ class Edit(ArticleMixin, FormView):
         revision.content = form.cleaned_data['content']
         revision.user_message = form.cleaned_data['summary']
         revision.deleted = False
+        self.article.released=False
         revision.set_from_request(self.request)
         self.article.add_revision(revision)
         messages.success(
@@ -732,6 +744,7 @@ class ChangeRevisionView(RedirectView):
             models.ArticleRevision,
             article=self.article,
             id=self.kwargs['revision_id'])
+        self.article.released = True
         self.article.current_revision = revision
         self.article.save()
         messages.success(
@@ -932,3 +945,41 @@ class CreateRootView(FormView):
 
 class MissingRootView(TemplateView):
     template_name = 'wiki/root_missing.html'
+
+class CheckListSettings(TemplateView):
+    template_name = "wiki/checklist.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        return super(CheckListSettings,self).dispatch(request,*args,**kwargs)
+
+    def get_context_data(self, **kwargs):
+        check_url =URLPath.objects.filter(
+            article_id__released= False
+        )
+        kwargs['check_url'] = check_url
+        kwargs['count'] = check_url.count()
+        return kwargs
+
+
+class CheckListValid(ListView, ArticleMixin):
+
+    template_name = "wiki/checklist.html"
+
+    def get_queryset(self):
+        return models.ArticleRevision.objects.filter(
+            article=self.article).order_by('-created')
+
+    @method_decorator(get_article(can_read=True))
+    def dispatch(self, request, article, *args, **kwargs):
+        self.article=article
+        self.article.released=True
+        self.article.save()
+        return super(CheckListValid, self).dispatch(request, article, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        check_url =URLPath.objects.filter(
+            article_id__released= False
+        )
+        kwargs['check_url'] = check_url
+        kwargs['count'] = check_url.count()
+        return kwargs
