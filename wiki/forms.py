@@ -406,6 +406,11 @@ class CreateForm(forms.Form, SpamProtectionMixin):
         required=False,
         widget=getEditor().get_widget())  # @UndefinedVariable
 
+    is_dir = forms.BooleanField(
+        required=False, label=_('Is_dir'),
+        help_text=_(
+            'Please select when you want to create floder'))
+
     summary = forms.CharField(
         label=_('Summary'),
         help_text=_("Write a brief message for the article's history log."),

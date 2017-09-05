@@ -314,6 +314,7 @@ class URLPath(MPTTModel):
         article = Article(**article_kwargs)
         article.add_revision(ArticleRevision(title=title, **revision_kwargs),
                              save=True)
+        article.is_dir=is_dir
         article.save()
         newpath = cls.objects.create(
             site=site,
