@@ -77,7 +77,15 @@ class Article(models.Model):
     other_write = models.BooleanField(
         default=True,
         verbose_name=_('others write access'))
-
+    #add by wx
+    released = models.BooleanField(
+        default=True,
+        verbose_name=_("aritcle is released")
+    )
+    is_dir = models.BooleanField(
+        default=False,
+        verbose_name=_("File is a directory")
+    )
     # PERMISSIONS
     def can_read(self, user):
         return permissions.can_read(self, user)

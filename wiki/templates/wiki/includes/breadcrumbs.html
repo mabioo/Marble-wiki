@@ -4,7 +4,15 @@
 
 <ul class="breadcrumb pull-left">
   {% for ancestor in urlpath.cached_ancestors %}
-    <li><a href="{% url 'wiki:get' path=ancestor.path %}">{{ ancestor.article.current_revision.title|truncatechars:25 }}</a></li>
+    <li>
+      {% if ancestor.article.is_dir %}
+          <a href="{% url 'wiki:dir' path=ancestor.path %}">
+      {% else %}
+            <a href="{% url 'wiki:get' path=ancestor.path %}">
+      {% endif %}
+            {{ ancestor.article.current_revision.title|truncatechars:25 }}
+          </a>
+    </li>
   {% endfor %}
   <li class="active">{{ article.current_revision.title|truncatechars:25 }}</li>
 </ul>
@@ -17,7 +25,12 @@
     <ul class="dropdown-menu">
       {% for child in children_slice %}
         <li>
-          <a href="{% url 'wiki:get' path=child.path %}">
+          {% if child.article.is_dir %}
+              <a href="{% url 'wiki:dir' path=child.path %}">
+          {% else %}
+                <a href="{% url 'wiki:get' path=child.path %}">
+          {% endif %}
+
             {{ child.article.current_revision.title }}
           </a>
         </li>
@@ -55,6 +68,9 @@
       </li>
     </ul>
   </div>
+</div>
+<div class="nav nav-pills" >
+  {% include "wiki/includes/article_menu.html" %}
 </div>
 <div style="clear: both"></div>
 </div>

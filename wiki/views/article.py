@@ -109,13 +109,18 @@ class Create(FormView, ArticleMixin):
                 messages.error(
                     self.request,
                     _("There was an error creating this article."))
-            return redirect('wiki:get', '')
-
-        url = self.get_success_url()
+            # return redirect('wiki:get', '')
+            redirect('wiki:create',self)
+        # is_dir = form.cleaned_data['is_dir']
+        print "<<<<<<<<<<<<<<<<",form.cleaned_data['is_dir']
+        url = self.get_success_url(form.cleaned_data['is_dir'])
         return url
 
-    def get_success_url(self):
-        return redirect('wiki:get', self.newpath.path)
+    def get_success_url(self,is_dir):
+        if is_dir is True:
+            return redirect('wiki:dir', self.newpath.path)
+        else:
+            return redirect('wiki:edit', self.newpath.path)
 
     def get_context_data(self, **kwargs):
         c = ArticleMixin.get_context_data(self, **kwargs)

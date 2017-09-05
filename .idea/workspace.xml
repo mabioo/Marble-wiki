@@ -2,61 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f86c32c-06ac-4b54-9788-ec7243494b6a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testproject/db/prepopulated.db" afterPath="$PROJECT_DIR$/testproject/db/prepopulated.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testproject/settings/base.py" afterPath="$PROJECT_DIR$/testproject/settings/base.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testproject/urls.py" afterPath="$PROJECT_DIR$/testproject/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testproject/wsgi.py" afterPath="$PROJECT_DIR$/testproject/wsgi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/core/compat.py" afterPath="$PROJECT_DIR$/wiki/core/compat.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/editors/markitup.py" afterPath="$PROJECT_DIR$/wiki/editors/markitup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/forms.py" afterPath="$PROJECT_DIR$/wiki/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/models/__init__.py" afterPath="$PROJECT_DIR$/wiki/models/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/models/article.py" afterPath="$PROJECT_DIR$/wiki/models/article.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/models/urlpath.py" afterPath="$PROJECT_DIR$/wiki/models/urlpath.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/attachments/forms.py" afterPath="$PROJECT_DIR$/wiki/plugins/attachments/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/attachments/models.py" afterPath="$PROJECT_DIR$/wiki/plugins/attachments/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/attachments/templates/wiki/plugins/attachments/delete.html" afterPath="$PROJECT_DIR$/wiki/plugins/attachments/templates/wiki/plugins/attachments/delete.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/attachments/templates/wiki/plugins/attachments/index.html" afterPath="$PROJECT_DIR$/wiki/plugins/attachments/templates/wiki/plugins/attachments/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/attachments/views.py" afterPath="$PROJECT_DIR$/wiki/plugins/attachments/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/attachments/wiki_plugin.py" afterPath="$PROJECT_DIR$/wiki/plugins/attachments/wiki_plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html" afterPath="$PROJECT_DIR$/wiki/plugins/globalhistory/templates/wiki/plugins/globalhistory/globalhistory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/globalhistory/templates/wiki/plugins/globalhistory/menubaritem.html" afterPath="$PROJECT_DIR$/wiki/plugins/globalhistory/templates/wiki/plugins/globalhistory/menubaritem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/globalhistory/views.py" afterPath="$PROJECT_DIR$/wiki/plugins/globalhistory/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/globalhistory/wiki_plugin.py" afterPath="$PROJECT_DIR$/wiki/plugins/globalhistory/wiki_plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/help/wiki_plugin.py" afterPath="$PROJECT_DIR$/wiki/plugins/help/wiki_plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/images/admin.py" afterPath="$PROJECT_DIR$/wiki/plugins/images/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/images/models.py" afterPath="$PROJECT_DIR$/wiki/plugins/images/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/images/templates/wiki/plugins/images/index.html" afterPath="$PROJECT_DIR$/wiki/plugins/images/templates/wiki/plugins/images/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/images/views.py" afterPath="$PROJECT_DIR$/wiki/plugins/images/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/images/wiki_plugin.py" afterPath="$PROJECT_DIR$/wiki/plugins/images/wiki_plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/links/mdx/urlize.py" afterPath="$PROJECT_DIR$/wiki/plugins/links/mdx/urlize.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/links/wiki_plugin.py" afterPath="$PROJECT_DIR$/wiki/plugins/links/wiki_plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/macros/mdx/macro.py" afterPath="$PROJECT_DIR$/wiki/plugins/macros/mdx/macro.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/macros/wiki_plugin.py" afterPath="$PROJECT_DIR$/wiki/plugins/macros/wiki_plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/notifications/models.py" afterPath="$PROJECT_DIR$/wiki/plugins/notifications/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html" afterPath="$PROJECT_DIR$/wiki/plugins/notifications/templates/wiki/plugins/notifications/menubaritem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/notifications/views.py" afterPath="$PROJECT_DIR$/wiki/plugins/notifications/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/plugins/notifications/wiki_plugin.py" afterPath="$PROJECT_DIR$/wiki/plugins/notifications/wiki_plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/static/wiki/bootstrap/css/wiki-bootstrap.css" afterPath="$PROJECT_DIR$/wiki/static/wiki/bootstrap/css/wiki-bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/static/wiki/bootstrap/less/wiki/wiki.less" afterPath="$PROJECT_DIR$/wiki/static/wiki/bootstrap/less/wiki/wiki.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/static/wiki/markitup/sets/admin/set.js" afterPath="$PROJECT_DIR$/wiki/static/wiki/markitup/sets/admin/set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/article.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/article.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/base_site.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/base_site.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/create.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/deleted.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/deleted.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/dir.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/dir.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/edit.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/history.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/history.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/includes/article_menu.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/includes/article_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/includes/breadcrumbs.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/includes/breadcrumbs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/includes/editor_sidebar.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/includes/editor_sidebar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/includes/pagination.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/includes/pagination.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/includes/render.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/includes/render.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templatetags/wiki_tags.py" afterPath="$PROJECT_DIR$/wiki/templatetags/wiki_tags.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/urls.py" afterPath="$PROJECT_DIR$/wiki/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/views/accounts.py" afterPath="$PROJECT_DIR$/wiki/views/accounts.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/views/article.py" afterPath="$PROJECT_DIR$/wiki/views/article.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/views/deleted_list.py" afterPath="$PROJECT_DIR$/wiki/views/deleted_list.py" />
     </list>
     <ignored path="Marble-wiki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,108 +25,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="article.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/article.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/plugins/attachments/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="187" column="33" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/plugins/images/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="138" column="34" selection-start-line="138" selection-start-column="34" selection-end-line="138" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#56#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="article_menu.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/includes/article_menu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testproject/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testproject/settings/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="6" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="article.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wiki/models/article.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34106413">
-              <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.4209329">
+              <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
               <folding>
                 <element signature="e#24#80#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="breadcrumbs.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/includes/breadcrumbs.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
-              <folding>
-                <marker date="1504617250129" expanded="true" signature="2282:2288" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sidebar.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/plugins/images/templates/wiki/plugins/images/sidebar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="141" column="48" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -207,7 +61,6 @@
         <option value="$PROJECT_DIR$/wiki/urls.py" />
         <option value="$PROJECT_DIR$/wiki/models/urlpath.py" />
         <option value="$PROJECT_DIR$/wiki/static/wiki/bootstrap/css/wiki-bootstrap.css" />
-        <option value="$PROJECT_DIR$/wiki/models/article.py" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/create.html" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/includes/editor_sidebar.html" />
         <option value="$PROJECT_DIR$/testproject/wsgi.py" />
@@ -243,14 +96,15 @@
         <option value="$PROJECT_DIR$/wiki/plugins/attachments/models.py" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/edit.html" />
         <option value="$PROJECT_DIR$/testproject/settings/base.py" />
+        <option value="$PROJECT_DIR$/wiki/models/article.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="51" />
-    <option name="y" value="94" />
-    <option name="width" value="1786" />
-    <option name="height" value="920" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -494,10 +348,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="94" width="1786" height="920" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27002287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24868283" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25330397" sideWeight="0.50421494" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -824,7 +678,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wiki/plugins/images/templates/wiki/plugins/images/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="4.1715975">
           <caret line="141" column="48" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
           <folding />
         </state>
@@ -832,7 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/includes/breadcrumbs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="1.6568047">
           <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
           <folding>
             <marker date="1504617250129" expanded="true" signature="2282:2288" placeholder="..." />
@@ -900,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wiki/models/article.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34106413">
-          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.4209329">
+          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
           <folding>
             <element signature="e#24#80#0" expanded="true" />
           </folding>

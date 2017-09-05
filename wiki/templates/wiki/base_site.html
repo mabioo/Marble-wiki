@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
           </button>
           {% block wiki_header_branding %}
-          <a class="navbar-brand" href="{% url 'wiki:root' %}">django-\/\/ i K |</a>
+          <a class="navbar-brand" href="{% url 'wiki:start' %}">Skyworth-\/\/ i K |</a>
           {% endblock %}
         </div>
         <div class="navbar-collapse collapse">
@@ -105,7 +105,7 @@
           </div>
           {% block wiki_header_navlinks %}
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">{% trans "Home" %}</a></li>
+            <li class="active"><a href="{% url 'wiki:root' %}">{% trans "Home" %}</a></li>
             <li><a href="https://github.com/django-wiki/django-wiki" target="_blank">{% trans "About" %}</a></li>
           </ul>
           {% endblock %}

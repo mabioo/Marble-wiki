@@ -62,8 +62,9 @@ class WikiURLPatterns(object):
 
     def get_root_urls(self):
         urlpatterns = [
-            url(r'^$',
-                self.article_view_class.as_view(),
+            url(r'^_$',
+                # self.article_view_class.as_view(),   modified by wx
+                self.article_dir_view_class.as_view(),
                 name='root',
                 kwargs={'path': ''}),
             url(r'^create-root/$',
@@ -200,6 +201,10 @@ class WikiURLPatterns(object):
             url(r'^(?P<path>.+/|)_dir/$',
                 self.article_dir_view_class.as_view(),
                 name='dir'),
+            url(r'^_dir/$',
+                self.article_dir_view_class.as_view(),
+                name='start',
+                ),
             url(r'^(?P<path>.+/|)_settings/$',
                 self.article_settings_view_class.as_view(),
                 name='settings'),
