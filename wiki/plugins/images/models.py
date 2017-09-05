@@ -122,7 +122,7 @@ def on_image_revision_delete(instance, *args, **kwargs):
     if not instance.image:
         return
     # Remove image file
-    path = instance.image.path.split("\\")[:-1]
+    path = instance.image.path.split("/")[:-1]
     instance.image.delete(save=False)
 
     # Clean up empty directories
@@ -143,5 +143,6 @@ def on_image_revision_delete(instance, *args, **kwargs):
             dir_list = None
         if not (dir_list is None) and len(dir_list) == 0:
             os.rmdir(delete_path)
+
 
 signals.pre_delete.connect(on_image_revision_delete, ImageRevision)

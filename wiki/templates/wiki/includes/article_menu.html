@@ -1,20 +1,6 @@
 {% load i18n wiki_tags %}
-{% load hitcount_tags %}
-
-{% load staticfiles %}
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="{% static 'hitcount/hitcount-jquery.js' %}"></script>
-
-{% get_hit_count_js_variables for article as hitcount %}
-{% insert_hit_count_js_variables for article %}
-
 
 {% with selected_tab as selected %}
-
-<ul class="pull-right marble_hits">
-  <li class="active">{%trans "hits："%}{% get_hit_count for article %}</li>
-</ul>
-
 
 <li class="pull-right{% if selected == "settings" %} active{% endif %}">
   {% if not user.is_anonymous %}
@@ -34,17 +20,14 @@
   </li>
 {% endfor %}
 
-{% if user.is_superuser %}
 <li class="pull-right{% if selected == "history" %} active{% endif %}">
   <a href="{% url 'wiki:history' article_id=article.id path=urlpath.path %}">
     <span class="fa fa-clock-o"></span>
-    <span class="hidden-xs">{% trans "Examination" %}</span>
+    <span class="hidden-xs">{% trans "Changes" %}</span>
   </a>
 </li>
-{% endif %}
 
-{% if article|can_write:user and not article.current_revision.locked  %}
-{#{% audit: if article|can_write:user and not article.current_revision.locked and article.released %} #}
+{% if article|can_write:user and not article.current_revision.locked %}
 <li class="pull-right{% if selected == "edit" %} active{% endif %}">
   <a href="{% url 'wiki:edit' article_id=article.id path=urlpath.path %}">
     <span class="fa fa-edit"></span>
@@ -52,19 +35,19 @@
   </a>
 </li>
 {% else %}
-<li class="pull-right active ">
+<li class="pull-right{% if selected == "source" %} active{% endif %}">
   <a href="{% url 'wiki:source' article_id=article.id path=urlpath.path %}">
     <span class="fa fa-lock"></span>
-    <span class="hidden-xs">{% trans "View..." %}</span>
+    <span class="hidden-xs">{% trans "View Source" %}</span>
   </a>
 </li>
 {% endif %}
 
-<!--<li class="pull-right{% if selected == "view" %} active{% endif %}">-->
-  <!--<a href="{% url 'wiki:get' article_id=article.id path=urlpath.path %}">-->
-    <!--<span class="fa fa-home"></span>-->
-    <!--<span class="hidden-xs">{% trans "View" %}</span>-->
-  <!--</a>-->
-<!--</li>-->
+<li class="pull-right{% if selected == "view" %} active{% endif %}">
+  <a href="{% url 'wiki:get' article_id=article.id path=urlpath.path %}">
+    <span class="fa fa-home"></span>
+    <span class="hidden-xs">{% trans "View" %}</span>
+  </a>
+</li>
 
 {% endwith %}

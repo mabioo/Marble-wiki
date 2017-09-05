@@ -11,15 +11,15 @@ class NotifyPlugin(BasePlugin):
 
     slug = settings.SLUG
     urlpatterns = {'root': [
-        url(r'^notificationsssss', views.NotificationSettings.as_view(), name='notification_settings'),
-        #url(r'^check_list', views.CheckListSettings.as_view(), name='checklist_settings'),
+        url(r'^$', views.NotificationSettings.as_view(), name='notification_settings'),
     ]}
 
     article_view = views.NotificationSettings().dispatch
 
-    # settings_form = 'wiki.plugins.notifications.forms.SubscriptionForm'
+    settings_form = 'wiki.plugins.notifications.forms.SubscriptionForm'
 
     def __init__(self):
         pass
+
 
 registry.register(NotifyPlugin)

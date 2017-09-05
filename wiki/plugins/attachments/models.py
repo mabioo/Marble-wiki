@@ -169,7 +169,7 @@ def on_revision_delete(instance, *args, **kwargs):
         return
 
     # Remove file
-    path = instance.file.path.split("\\")[:-1]
+    path = instance.file.path.split("/")[:-1]
     instance.file.delete(save=False)
 
     # Clean up empty directories

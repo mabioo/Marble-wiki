@@ -18,11 +18,12 @@ from django.utils.html import conditional_escape, escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext
+from django.shortcuts import get_object_or_404
 from six.moves import range
 from wiki import models
 from wiki.conf import settings
 from wiki.core import permissions
-from wiki.core.compat import get_user_model
+from wiki.core.compat import get_user_model, BuildAttrsCompat
 from wiki.core.diff import simple_merge
 from wiki.core.plugins.base import PluginSettingsFormMixin
 from wiki.editors import getEditor
@@ -41,7 +42,6 @@ validate_slug_numbers = RegexValidator(
     inverse_match=True
 )
 
-
 class WikiSlugField(forms.SlugField):
     """
     In future versions of Django, we might be able to define this field as
@@ -58,6 +58,46 @@ class WikiSlugField(forms.SlugField):
                 validate_slug_numbers
             ]
         super(forms.SlugField, self).__init__(*args, **kwargs)
+
+def _clean_slug(slug, urlpath):
+    if slug.startswith("_"):
+        raise forms.ValidationError(
+            ugettext('A slug may not begin with an underscore.'))
+    if slug == 'admin':
+        raise forms.ValidationError(
+            ugettext("'admin' is not a permitted slug name."))
+
+    if settings.URL_CASE_SENSITIVE:
+        already_existing_slug = models.URLPath.objects.filter(
+            slug=slug,
+            parent=urlpath)
+    else:
+        slug = slug.lower()
+        already_existing_slug = models.URLPath.objects.filter(
+            slug__iexact=slug,
+            parent=urlpath)
+    if already_existing_slug:
+        already_urlpath = already_existing_slug[0]
+        if already_urlpath.article and already_urlpath.article.current_revision.deleted:
+            raise forms.ValidationError(
+                ugettext('A deleted article with slug "%s" already exists.') %
+                already_urlpath.slug)
+        else:
+            raise forms.ValidationError(
+                ugettext('A slug named "%s" already exists.') %
+                already_urlpath.slug)
+
+    if settings.CHECK_SLUG_URL_AVAILABLE:
+        try:
+            # Fail validation if URL resolves to non-wiki app
+            match = resolve(urlpath.path + '/' + slug + '/')
+            if match.app_name != 'wiki':
+                raise forms.ValidationError(
+                    ugettext('This slug conflicts with an existing URL.'))
+        except Resolver404:
+            pass
+
+    return slug
 
 
 User = get_user_model()
@@ -152,6 +192,22 @@ class CreateRootForm(forms.Form):
             'This is just the initial contents of your article. After creating it, you can use more complex features like adding plugins, meta data, related articles etc...'),
         required=False, widget=getEditor().get_widget())  # @UndefinedVariable
 
+class MoveForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(MoveForm, self).__init__(*args, **kwargs)
+
+    destination = forms.CharField(label=_('Destination'))
+    slug = WikiSlugField(max_length=models.URLPath.SLUG_MAX_LENGTH)
+    redirect = forms.BooleanField(label=_('Redirect pages'),
+                                  help_text=_('Create a redirect page for every moved article?'),
+                                  required=False)
+
+    def clean(self):
+        cd = self.cleaned_data
+        if cd.get('slug'):
+            dest_path = get_object_or_404(models.URLPath, pk=self.cleaned_data['destination'])
+            cd['slug'] = _clean_slug(cd['slug'], dest_path)
+        return cd
 
 class EditForm(forms.Form, SpamProtectionMixin):
 
@@ -160,7 +216,6 @@ class EditForm(forms.Form, SpamProtectionMixin):
         label=_('Contents'),
         required=False,
         widget=getEditor().get_widget())  # @UndefinedVariable
-        # widget=forms.Textarea)
 
     summary = forms.CharField(
         label=_('Summary'),
@@ -244,8 +299,7 @@ class EditForm(forms.Form, SpamProtectionMixin):
         return cd
 
 
-class SelectWidgetBootstrap(forms.Select):
-
+class SelectWidgetBootstrap(BuildAttrsCompat, forms.Select):
     """
     http://twitter.github.com/bootstrap/components.html#buttonDropdowns
     Needs bootstrap and jquery
@@ -265,7 +319,7 @@ class SelectWidgetBootstrap(forms.Select):
     def render(self, name, value, attrs=None, choices=()):
         if value is None:
             value = ''
-        final_attrs = self.build_attrs(attrs, name=name)
+        final_attrs = self.build_attrs_compat(attrs, name=name)
         output = [
             """<div%(attrs)s>"""
             """    <button class="btn btn-group-label%(disabled)s" type="button">%(label)s</button>"""
@@ -342,22 +396,15 @@ class CreateForm(forms.Form, SpamProtectionMixin):
         self.urlpath_parent = urlpath_parent
 
     title = forms.CharField(label=_('Title'),)
-
-    is_dir = forms.BooleanField(
-        required=False, label=_('Is_dir'),
+    slug = WikiSlugField(
+        label=_('Slug'),
         help_text=_(
-            '创建目录请勾选'))
-
-    ## hidden by wx
-    # slug = WikiSlugField(
-    #     label=_('Slug'),
-    #     help_text=_(
-    #         "This will be the address where your article can be found. Use only alphanumeric characters and - or _. Note that you cannot change the slug after creating the article."),
-    #     max_length=models.URLPath.SLUG_MAX_LENGTH)
-    # content = forms.CharField(
-    #     label=_('Contents'),
-    #     required=False,
-    #     widget=getEditor().get_widget())  # @UndefinedVariable
+            "This will be the address where your article can be found. Use only alphanumeric characters and - or _.<br>Note: If you change the slug later on, links pointing to this article are <b>not</b> updated."),
+        max_length=models.URLPath.SLUG_MAX_LENGTH)
+    content = forms.CharField(
+        label=_('Contents'),
+        required=False,
+        widget=getEditor().get_widget())  # @UndefinedVariable
 
     summary = forms.CharField(
         label=_('Summary'),
@@ -365,45 +412,7 @@ class CreateForm(forms.Form, SpamProtectionMixin):
         required=False)
 
     def clean_slug(self):
-        slug = self.cleaned_data['slug']
-        if slug.startswith("_"):
-            raise forms.ValidationError(
-                ugettext('A slug may not begin with an underscore.'))
-        if slug == 'admin':
-            raise forms.ValidationError(
-                ugettext("'admin' is not a permitted slug name."))
-
-        if settings.URL_CASE_SENSITIVE:
-            already_existing_slug = models.URLPath.objects.filter(
-                slug=slug,
-                parent=self.urlpath_parent)
-        else:
-            slug = slug.lower()
-            already_existing_slug = models.URLPath.objects.filter(
-                slug__iexact=slug,
-                parent=self.urlpath_parent)
-        if already_existing_slug:
-            already_urlpath = already_existing_slug[0]
-            if already_urlpath.article and already_urlpath.article.current_revision.deleted:
-                raise forms.ValidationError(
-                    ugettext('A deleted article with slug "%s" already exists.') %
-                    already_urlpath.slug)
-            else:
-                raise forms.ValidationError(
-                    ugettext('A slug named "%s" already exists.') %
-                    already_urlpath.slug)
-
-        if settings.CHECK_SLUG_URL_AVAILABLE:
-            try:
-                # Fail validation if URL resolves to non-wiki app
-                match = resolve(self.urlpath_parent.path + '/' + slug + '/')
-                if match.app_name != 'wiki':
-                    raise forms.ValidationError(
-                        ugettext('This slug conflicts with an existing URL.'))
-            except Resolver404:
-                pass
-
-        return slug
+        return _clean_slug(self.cleaned_data['slug'], self.urlpath_parent)
 
     def clean(self):
         self.check_spam()
@@ -418,15 +427,12 @@ class DeleteForm(forms.Form):
         super(DeleteForm, self).__init__(*args, **kwargs)
 
     confirm = forms.BooleanField(required=False,
-                                 label=_('Sure')
-                                 )
-
+                                 label=_('Yes, I am sure'))
     purge = forms.BooleanField(
         widget=HiddenInput(),
         required=False, label=_('Purge'),
         help_text=_(
             'Purge the article: Completely remove it (and all its contents) with no undo. Purging is a good idea if you want to free the slug such that users can create new articles in its place.'))
-
     revision = forms.ModelChoiceField(models.ArticleRevision.objects.all(),
                                       widget=HiddenInput(), required=False)
 

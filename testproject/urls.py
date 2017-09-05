@@ -25,7 +25,6 @@ if settings.DEBUG:
 
 urlpatterns += [
     url(r'^notify/', get_notify_pattern()),
-    url(r'hitcount/', include('hitcount.urls', namespace='hitcount')),
     url(r'', get_wiki_pattern())
 ]
 

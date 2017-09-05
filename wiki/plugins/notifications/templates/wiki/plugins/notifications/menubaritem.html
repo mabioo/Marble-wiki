@@ -1,26 +1,19 @@
 {% load i18n sekizai_tags static %}
 
-  <!--<li class="divider notification-before-list"></li>-->
-  <!--<li class="notifications-empty"><a href="#"><em>{% trans "No notifications" %}</em></a></li>-->
-  <!--<li class="divider"></li>-->
-  <!--<li>-->
-    <!--<a href="#" onclick="notify_mark_read()">-->
-      <!--<i class="fa fa-check-square-o"></i>-->
-      <!--{% trans "Clear notifications list" %}-->
-    <!--</a>-->
-  <!--</li>-->
-  <!--<li>-->
-    <!--<a href="{% url 'wiki:notification_settings' %}">-->
-      <!--<i class="fa fa-wrench"></i>-->
-      <!--{% trans "Notification settings" %}-->
-    <!--</a>-->
-  <!--</li>-->
-  <!--<li>-->
-    <!--<a href="{% url 'wiki:checklist_settings' %}">-->
-      <!--<i class ="fa fa-check-square-o"></i>-->
-      <!--{% trans "待审阅..." %}-->
-    <!--</a>-->
-
+  <li class="divider notification-before-list"></li>
+  <li class="notifications-empty"><a href="#"><em>{% trans "No notifications" %}</em></a></li>
+  <li class="divider"></li>
+  <li>
+    <a href="#" onclick="notify_mark_read()">
+      <i class="fa fa-check-square-o"></i>
+      {% trans "Clear notifications list" %}
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'wiki:notification_settings' %}">
+      <i class="fa fa-wrench"></i>
+      {% trans "Notification settings" %}
+    </a>
   </li>
 {% addtoblock "js" %}
 <script type="text/javascript">

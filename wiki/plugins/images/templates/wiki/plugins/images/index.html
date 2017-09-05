@@ -5,7 +5,7 @@
 {% block wiki_pagetitle %}{% trans "Images" %}: {{ article.current_revision.title }}{% endblock %}
 
 {% block wiki_contents_tab %}
-  <p class="lead">{% trans "通过Markdown tag可以直接在文章值引用." %}</p>
+  <p class="lead">{% trans "The following images are available for this article. Copy the markdown tag to directly refer to an image from the article text." %}</p>
   <p>
     <a href="{% url 'wiki:edit' path=urlpath.path article_id=article.id %}">
       <span class="fa fa-arrow-left"></span>

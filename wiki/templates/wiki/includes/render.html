@@ -3,26 +3,12 @@
 {% addtoblock "js" %}
   <script type="text/javascript" src="{% static "wiki/js/article.js" %}"></script>
 {% endaddtoblock %}
+
 <div class="wiki-article">
   {% if not preview %}
-    {{ article.get_cached_content }}
-  {% comment %}
     {% if article.current_revision %}
-        {% if article.released %}
-            {{ article.get_cached_content }}
-        {% else %}
-            {% ifequal user article.owner %}
-                {{ article.get_cached_content }}
-            {% else %}
-                {% ifequal user urlpath.article.current_revision.user %}
-                    {{ article.get_cached_content }}
-                {% else %}
-                    {{ article.current_revision.previous_revision.content }}
-                {% endifequal %}
-            {% endifequal %}
-        {% endif %}
+      {{ article.get_cached_content }}
     {% endif %}
-    {% endcomment %}
   {% else %}
     {{ content|default:"" }}
   {% endif %}

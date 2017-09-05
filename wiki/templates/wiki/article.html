@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block wiki_contents %}
+
   <div id="article-container">
     <ul class="nav nav-pills" id="article-menu">
       <li class="pull-left" id="article-title-li">
@@ -16,11 +17,7 @@
           {{ article.current_revision.title }}
           <small style="font-size: 14px;">
             {% if urlpath.parent %}
-                {% if urlpath.article.is_dir %}
-                    <a href="{% url 'wiki:dir' path=urlpath.path %}"><span class="fa fa-bookmark "></span>{{ urlpath.slug }}</a>
-                {% else %}
-                    <a href="{% url 'wiki:get' path=urlpath.path %}"><span class="fa fa-bookmark"></span> {{ urlpath.slug }}</a>
-                {% endif %}
+            <a href="{% url 'wiki:get' path=urlpath.path %}"><span class="fa fa-bookmark"></span> {{ urlpath.slug }}</a>
             {% endif %}
             {% if article.current_revision.locked %}
               <span class="fa fa-lock"></span> {% trans "locked" %}
@@ -28,6 +25,7 @@
           </small>
         </h1>
       </li>
+      {% include "wiki/includes/article_menu.html" %}
     </ul>
     <div>
       {% block wiki_contents_tab %}

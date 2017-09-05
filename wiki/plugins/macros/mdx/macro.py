@@ -81,17 +81,17 @@ class MacroPreprocessor(markdown.preprocessors.Preprocessor):
             })
         return self.markdown.htmlStash.store(html, safe=True)
     article_list.meta = dict(
-        short_description=_('文章列表'),
-        help_text=_('插入在此文件夹下的所有文章.'),
+        short_description=_('Article list'),
+        help_text=_('Insert a list of articles in this level.'),
         example_code='[article_list depth:2]',
-        # args={'depth': _('Maximum depth to show levels for.')}
+        args={'depth': _('Maximum depth to show levels for.')}
     )
 
     def toc(self):
         return "[TOC]"
     toc.meta = dict(
-        short_description=_('文章目录'),
-        help_text=_('显示文章目录.'),
+        short_description=_('Table of contents'),
+        help_text=_('Insert a table of contents matching the headings.'),
         example_code='[TOC]',
         args={}
     )

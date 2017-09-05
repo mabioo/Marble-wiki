@@ -28,7 +28,7 @@ SECRET_KEY = 'b^fv_)t39h%9p40)fnkfblo##jkr!$0)lkp6bpy!fi*f$4*92!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1' , 'localhost']
+ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'wiki.plugins.notifications',
     'wiki.plugins.globalhistory',
     'mptt',
-    'hitcount',
 ]
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
@@ -156,20 +155,3 @@ MEDIA_URL = '/media/'
 
 WIKI_ANONYMOUS_WRITE = True
 WIKI_ANONYMOUS_CREATE = False
-
-
-# this is for count of the articles numbers
-HITCOUNT_KEEP_HIT_ACTIVE = {'seconds': 60}
-HITCOUNT_HITS_PER_IP_LIMIT = 0  # unlimited
-HITCOUNT_EXCLUDE_USER_GROUP = ()  # not used
-HITCOUNT_KEEP_HIT_IN_DATABASE = {'minutes': 10}
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#
-# EMAIL_USE_TLS = False
-# EMAIL_HOST = 'smtp.exmail.qq.com'
-# EMAIL_PORT = 25
-# EMAIL_HOST_USER = '745376473@qq.com'
-# EMAIL_HOST_PASSWORD = 'wx951017'
-# DEFAULT_FROM_EMAIL = '745376473@qq.com'

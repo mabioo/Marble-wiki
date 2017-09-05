@@ -78,23 +78,6 @@ class Article(models.Model):
         default=True,
         verbose_name=_('others write access'))
 
-    released = models.BooleanField(
-        default=True,
-        verbose_name=_("aritcle is released")
-    )
-
-    is_dir = models.BooleanField(
-        default=False,
-        verbose_name=_("File is a directory")
-    )
-
-    # def test(self):
-    #     print self.current_revision.title
-    #     self.released = True
-    #     print self.released
-    #     self.save()
-    #     print "<<<<<<<<<<<<"
-
     # PERMISSIONS
     def can_read(self, user):
         return permissions.can_read(self, user)

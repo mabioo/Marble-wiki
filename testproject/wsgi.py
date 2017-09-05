@@ -23,7 +23,6 @@ import sys
 # setting points here.
 from django.core.wsgi import get_wsgi_application
 
-
 PROJECT_PATH = os.path.abspath(os.path.split(__file__)[0])
 PROJECT_PARENT = os.path.abspath(os.path.split(PROJECT_PATH)[0])
 sys.path.append(PROJECT_PATH)
@@ -36,5 +35,3 @@ application = get_wsgi_application()
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
-
-# MOD_WSGI_APACHE_ROOTDIR = "D:\GitWorkspace\Apache\Apache24"
