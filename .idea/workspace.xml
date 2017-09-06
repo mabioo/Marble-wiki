@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9f86c32c-06ac-4b54-9788-ec7243494b6a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testproject/db/prepopulated.db" afterPath="$PROJECT_DIR$/testproject/db/prepopulated.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/models/article.py" afterPath="$PROJECT_DIR$/wiki/models/article.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/urls.py" afterPath="$PROJECT_DIR$/wiki/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/models/urlpath.py" afterPath="$PROJECT_DIR$/wiki/models/urlpath.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/views/accounts.py" afterPath="$PROJECT_DIR$/wiki/views/accounts.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/views/article.py" afterPath="$PROJECT_DIR$/wiki/views/article.py" />
     </list>
     <ignored path="Marble-wiki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,14 +26,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="article.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="article.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wiki/models/article.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4209329">
+            <state vertical-scroll-proportion="0.0">
               <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
               <folding>
                 <element signature="e#24#80#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urlpath.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wiki/models/urlpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9666667">
+              <caret line="294" column="22" selection-start-line="294" selection-start-column="8" selection-end-line="294" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="article.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wiki/views/article.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4034091">
+              <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wiki/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8">
+              <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,7 +90,6 @@
         <option value="$PROJECT_DIR$/wiki/plugins/attachments/templates/wiki/plugins/attachments/delete.html" />
         <option value="$PROJECT_DIR$/testproject/urls.py" />
         <option value="$PROJECT_DIR$/wiki/urls.py" />
-        <option value="$PROJECT_DIR$/wiki/models/urlpath.py" />
         <option value="$PROJECT_DIR$/wiki/static/wiki/bootstrap/css/wiki-bootstrap.css" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/create.html" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/includes/editor_sidebar.html" />
@@ -84,7 +114,6 @@
         <option value="$PROJECT_DIR$/wiki/plugins/notifications/forms.py" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/settings.html" />
         <option value="$PROJECT_DIR$/wiki/plugins/notifications/wiki_plugin.py" />
-        <option value="$PROJECT_DIR$/wiki/views/article.py" />
         <option value="$PROJECT_DIR$/wiki/plugins/images/templates/wiki/plugins/images/sidebar.html" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/includes/article_menu.html" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/includes/render.html" />
@@ -97,14 +126,16 @@
         <option value="$PROJECT_DIR$/wiki/templates/wiki/edit.html" />
         <option value="$PROJECT_DIR$/testproject/settings/base.py" />
         <option value="$PROJECT_DIR$/wiki/models/article.py" />
+        <option value="$PROJECT_DIR$/wiki/models/urlpath.py" />
+        <option value="$PROJECT_DIR$/wiki/views/article.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="24" />
+    <option name="y" value="61" />
+    <option name="width" value="1786" />
+    <option name="height" value="921" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -161,6 +192,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Marble-wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Marble-wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -348,10 +397,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
-    <editor active="true" />
+    <frame x="24" y="61" width="1786" height="921" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24868283" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27002287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25330397" sideWeight="0.50421494" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -388,13 +437,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37738854">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/deleted.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -549,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/django/shortcuts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21725732">
-          <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/django/forms/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.257319">
@@ -567,13 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.882353">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wiki/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="185" column="31" selection-start-line="185" selection-start-column="31" selection-end-line="185" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -640,13 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wiki/views/article.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0385208">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/includes/render.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -689,7 +710,7 @@
         <state vertical-scroll-proportion="1.6568047">
           <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
           <folding>
-            <marker date="1504617250129" expanded="true" signature="2282:2288" placeholder="..." />
+            <marker date="1504620691213" expanded="true" signature="2697:2703" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -754,11 +775,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wiki/models/article.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4209329">
+        <state vertical-scroll-proportion="0.0">
           <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
           <folding>
             <element signature="e#24#80#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki/models/urlpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9666667">
+          <caret line="294" column="22" selection-start-line="294" selection-start-column="8" selection-end-line="294" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/shortcuts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33242506">
+          <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki/views/article.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4034091">
+          <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>

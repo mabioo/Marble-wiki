@@ -84,7 +84,7 @@ class Create(FormView, ArticleMixin):
 
     def form_valid(self, form):
         try:
-            self.newpath = models.URLPath._create_urlpath_from_request(
+            self.newpath = models.URLPath.create_article(
                 self.request,
                 self.article,
                 self.urlpath,
@@ -109,8 +109,8 @@ class Create(FormView, ArticleMixin):
                 messages.error(
                     self.request,
                     _("There was an error creating this article."))
-            # return redirect('wiki:get', '')
-            redirect('wiki:create',self)
+            return redirect('wiki:get', '')
+            #redirect('wiki:create',self)
         # is_dir = form.cleaned_data['is_dir']
         print "<<<<<<<<<<<<<<<<",form.cleaned_data['is_dir']
         url = self.get_success_url(form.cleaned_data['is_dir'])

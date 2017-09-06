@@ -37,7 +37,7 @@ class Signup(CreateView):
     def dispatch(self, request, *args, **kwargs):
         # Let logged in super users continue
         if not request.user.is_anonymous() and not request.user.is_superuser:
-            return redirect('wiki:dir')
+            return redirect('wiki:root')
         # If account handling is disabled, don't go here
         if not settings.ACCOUNT_HANDLING:
             return redirect(settings.SIGNUP_URL)
@@ -110,7 +110,7 @@ class Login(FormView):
             return redirect(django_settings.LOGIN_REDIRECT_URL)
         else:
             if not self.referer:
-                return redirect("wiki:dir")
+                return redirect("wiki:root")
             return redirect(self.referer)
 
 class Update(UpdateView):
